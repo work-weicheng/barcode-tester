@@ -75,9 +75,7 @@
           }
           alert({
             userAgent: navigator.userAgent,
-            cameras: e.map((el) => {
-              return el.label
-            }),
+            cameras: camerasLabel,
           })
 
           let t,
