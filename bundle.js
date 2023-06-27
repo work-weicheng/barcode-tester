@@ -68,13 +68,13 @@
       document.addEventListener("scannerModuleLoaded", async function (e) {
         console.log(e.detail), console.log("@@@")
         console.log(navigator.userAgent)
-        alert({
-          userAgent: navigator.userAgent,
-          cameras: e.map((el) => {
-            return el.label
-          }),
-        })
         mwbScanner.getCameras().then(function (e) {
+          alert({
+            userAgent: navigator.userAgent,
+            cameras: e.map((el) => {
+              return el.label
+            }),
+          })
           let t,
             n = e.length,
             i = ""
