@@ -67,6 +67,7 @@
       }),
       document.addEventListener("scannerModuleLoaded", async function (e) {
         console.log(e.detail), console.log("@@@")
+        console.log(navigator.userAgent)
         mwbScanner.getCameras().then(function (e) {
           let t,
             n = e.length,
