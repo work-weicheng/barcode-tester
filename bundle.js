@@ -73,6 +73,7 @@
           for (let i = 0; i < e.length; i++) {
             camerasLabel += `\n${e[i].label}`
           }
+          alert(camerasLabel)
           alert(`${navigator.userAgent}\n${camerasLabel}`)
 
           let t,
