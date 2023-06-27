@@ -69,12 +69,17 @@
         console.log(e.detail), console.log("@@@")
         console.log(navigator.userAgent)
         mwbScanner.getCameras().then(function (e) {
+          let camerasLabel = []
+          for (let i = 0; i < e.length; i++) {
+            camerasLabel.push(e[i].label)
+          }
           alert({
             userAgent: navigator.userAgent,
             cameras: e.map((el) => {
               return el.label
             }),
           })
+
           let t,
             n = e.length,
             i = ""
