@@ -76,8 +76,21 @@
             navigator.mediaDevices
               .enumerateDevices()
               .then((devices) => {
-                let labels = devices.map((el) => el.label)
-                alert(JSON.stringify(labels))
+                let result = ""
+                result += navigator.userAgent
+                result += `\n\nCognex devices:`
+                for (let t = 0; t < n; t++) {
+                  result += `\n${e[t].label}`
+                }
+
+                result += `\n\nNavigator devices:`
+                let navigatorLabels = devices.reduce((acc, el) => {
+                  if (el.kind === "videoinput") {
+                    acc += `\n${el.label}`
+                  }
+                  return acc
+                }, "")
+                alert(result + navigatorLabels)
                 devices.forEach((device) => {
                   console.log(
                     `${device.kind}: ${device.label} id = ${device.deviceId}`
