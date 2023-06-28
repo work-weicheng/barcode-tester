@@ -69,6 +69,25 @@
         console.log(e.detail), console.log("@@@")
         console.log(navigator.userAgent)
         mwbScanner.getCameras().then(function (e) {
+          if (!navigator.mediaDevices?.enumerateDevices) {
+            console.log("enumerateDevices() not supported.")
+          } else {
+            // List cameras and microphones.
+            navigator.mediaDevices
+              .enumerateDevices()
+              .then((devices) => {
+                let labels = devices.map((el) => el.label)
+                alert(JSON.stringify(labels))
+                devices.forEach((device) => {
+                  console.log(
+                    `${device.kind}: ${device.label} id = ${device.deviceId}`
+                  )
+                })
+              })
+              .catch((err) => {
+                console.error(`${err.name}: ${err.message}`)
+              })
+          }
           let camerasLabel = ""
           for (let i = 0; i < e.length; i++) {
             camerasLabel += `\n${e[i].label}`
