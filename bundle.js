@@ -91,22 +91,11 @@
                   return acc
                 }, "")
                 alert(result + navigatorLabels)
-                devices.forEach((device) => {
-                  console.log(
-                    `${device.kind}: ${device.label} id = ${device.deviceId}`
-                  )
-                })
               })
               .catch((err) => {
                 console.error(`${err.name}: ${err.message}`)
               })
           }
-          let camerasLabel = ""
-          for (let i = 0; i < e.length; i++) {
-            camerasLabel += `\n${e[i].label}`
-          }
-          // alert(camerasLabel)
-          alert(JSON.stringify(`${navigator.userAgent}\n${camerasLabel}`))
 
           let t,
             n = e.length,
